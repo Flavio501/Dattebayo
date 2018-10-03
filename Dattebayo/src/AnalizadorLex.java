@@ -38,9 +38,9 @@ public class AnalizadorLex extends javax.swing.JFrame {
                 Matcher matcher = patron.matcher(palabra);
                 if (matcher.find() /*&& matched ==false*/) {
                     Token tk = new Token();
-                    palabra = palabra.substring(matcher.replaceFirst("").length());
+                    // Hacer substring del string que coincide con el patron
                     tk.setTipo(tokenTipo);
-                    tk.setValor(palabra);
+                    tk.setValor(matcher.group());
                     tokens.add(tk);
                     tk.setEntrada(tokens.indexOf(tk));
                     matched = true;

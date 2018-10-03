@@ -7,8 +7,8 @@ public enum Tipo {
     ASIGNACION("="),
     PALABRAS_RESERVADAS("(\n|Hokage|Byakugan|Sharingan|Rinnegan|Kamui)$"),
     IDENTIFICADORES("^_[A-Za-z|0-9]+$"),
-    AGRUPADORES("[{|}|[|]|(|)]$"),
-    TERMINADORES("(;)"),
+    AGRUPADORES("[ { | } | \\[ | \\] | \\( | \\) ]$"),
+    TERMINADORES("\\;"),
     FLOATS("[0-9]*[.][0.9]*");
 
     public final String patron;
