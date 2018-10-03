@@ -5,8 +5,7 @@ public enum Tipo {
     OP_ARIT("[* | / | + | - | ^ ]$"),
     OP_LOG("neji|sasori|deidara"),
     ASIGNACION("="),
-    PALABRAS_RESERVADAS("(\n|abs|brk|cs|char|cl|do|else|extends|for|if|implements|import|infa|swt|this|try|wl|yes|no|bl|bt|st"
-            + "str|int|ft|dou)$"),
+    PALABRAS_RESERVADAS("(\n|Hokage|Byakugan|Sharingan|Rinnegan|Kamui)$"),
     IDENTIFICADORES("^_[A-Za-z|0-9]+$"),
     AGRUPADORES("[{|}|[|]|(|)]$"),
     TERMINADORES("(;)"),
