@@ -3,13 +3,13 @@ public enum Tipo {
     ENTEROS("^\\d+$"),
     STRINGS("\"(.*?)\""),
     OP_ARIT("[* | / | + | - | ^ ]$"),
-    OP_LOG("Neji|Sasori|Deidara|Gui|Lee|Gaara|Choji|Hidan"),
+    OP_LOG("neji|sasori|deidara|gui|lee|gaara|choji|hidan"),
     ASIGNACION("="),
-    PALABRAS_RESERVADAS("(\n|Hokage|Byakugan|Sharingan|Rinnegan|Kamui|Tsukuyomi|Kurama|Gyuki|Genin|Jonin)$"),
+    PALABRAS_RESERVADAS("(\n|Hokage|byakugan|sharingan|rinnegan|kamui|tsukuyomi|kurama|gyuki|genin|jonin)$"),
     IDENTIFICADORES("^_[A-Za-z|0-9]+$"),
     AGRUPADORES("[ { | } | \\[ | \\] | \\( | \\) ]$"),
     TERMINADORES("\\;"),
-    TIPOS("Chidori|Rasengan|Susanoo|Chakra|Shuriken"),
+    TIPOS("chidori|rasengan|susanoo|chakra|shuriken"),
     FLOATS("[0-9]*[.][0.9]*");
 
     public final String patron;
