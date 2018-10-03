@@ -36,15 +36,16 @@ public class AnalizadorLex extends javax.swing.JFrame {
             for (Tipo tokenTipo : Tipo.values()) {
                 Pattern patron = Pattern.compile(tokenTipo.patron);
                 Matcher matcher = patron.matcher(palabra);
-                if (matcher.find()) {
+                if (matcher.find() /*&& matched ==false*/) {
                     Token tk = new Token();
+                    palabra = palabra.substring(matcher.replaceFirst("").length());
                     tk.setTipo(tokenTipo);
                     tk.setValor(palabra);
                     tokens.add(tk);
+                    tk.setEntrada(tokens.indexOf(tk));
                     matched = true;
                 }
             }
-
             if (!matched) {
                 errores.add(palabra);
                 for (int i = 0; i < errores.size(); i++) {
