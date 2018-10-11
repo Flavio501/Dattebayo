@@ -27,38 +27,37 @@ public class AnalizadorLex extends javax.swing.JFrame {
 
     private ArrayList<Token> lex(String input) {
         final ArrayList<Token> tokens = new ArrayList<Token>();
-        final StringTokenizer st = new StringTokenizer(input);
-
+        StringTokenizer st = new StringTokenizer(input,"\t\n\r\f()[]{}+/-*; ",true);
+        
         while (st.hasMoreTokens()) {
             String palabra = st.nextToken();
+            System.out.println(palabra);
             boolean matched = false;
 
+            int cont = 0;
             for (Tipo tokenTipo : Tipo.values()) {
-                Pattern patron = Pattern.compile(tokenTipo.patron);
-                Matcher matcher = patron.matcher(palabra);
-                if (matcher.find() /*&& matched ==false*/) {
+            	
+                if (palabra.matches(tokenTipo.patron)) {
                     Token tk = new Token();
-                    // Hacer substring del string que coincide con el patron
                     tk.setTipo(tokenTipo);
-                    tk.setValor(matcher.group());
+                    tk.setValor(palabra);
+                    tk.setEntrada(cont);
                     tokens.add(tk);
-                    tk.setEntrada(tokens.indexOf(tk));
                     matched = true;
+                    cont++;
+                    //palabra = palabra.replaceFirst(matcher.group(),"");
+                    //st = new StringTokenizer(input.replaceFirst(matcher.group(),""));
+                    //break;
                 }
             }
-            if (!matched) {
+            if (!matched && palabra.trim().length() != 0) {
                 errores.add(palabra);
                 for (int i = 0; i < errores.size(); i++) {
-
                     dtm2.addRow(new Object[]{errores.get(i)});
-
                 }
                 errores.clear();
-
             }
-
         }
-
         return tokens;
     }
 
@@ -206,7 +205,7 @@ public class AnalizadorLex extends javax.swing.JFrame {
         File archivo = null;
         try {
             
-            archivo = new File("C:\\Users\\shofi\\Desktop\\fichero.txt");
+            archivo = new File("/home/flavio501/Documents/codeTest.txt");
             fr = new FileReader(archivo);
             bf = new BufferedReader(fr);
 
