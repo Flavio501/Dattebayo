@@ -14,7 +14,6 @@ public enum Tipo {
     ASIGNACION("="),
     PALABRAS_RESERVADAS("\\b(Hokage|Byakugan|Sharingan|Rinnegan|Kamui|Tsukuyomi|Kurama|Gyuki|Genin|Jonin)\\b"),
     IDENTIFICADORES("^_[A-Za-z|0-9]+$"),
-    //FLOATS("([0-9]*[.][0.9]+)"),
     TERMINADORES("\\;");
 
     public final String patron;

@@ -4,12 +4,11 @@ import java.io.File;
 import java.io.FileReader;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.StringTokenizer;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
+import java.util.StringTokenizer;
+import java.util.regex.Matcher;
 import javax.swing.table.DefaultTableModel;
-
 public class AnalizadorLex extends javax.swing.JFrame {
 
     ArrayList<String> tipo = new ArrayList<>();
@@ -229,7 +228,7 @@ public class AnalizadorLex extends javax.swing.JFrame {
         }
     }
 
-    public void mostrar() {
+    public void  mostrar() {
 
         try {
             dtm.addColumn("TIPO");
