@@ -217,6 +217,7 @@ public class AnalizadorLex extends javax.swing.JFrame {
         ArrayList<String> reglas = anSintax(tokens);
         for(String s :reglas) {
         	System.out.println(s);
+        	System.out.println(s);
         }
     }
 
@@ -302,11 +303,15 @@ public class AnalizadorLex extends javax.swing.JFrame {
         // TODO add your handling code here:
         int a = dtm.getRowCount();
         int b= dtm2.getRowCount();
+        int c = dtm3.getRowCount();
         for (int i = 0; i < a; i++) {
             dtm.removeRow(0);  
         }
         for (int i = 0; i < b; i++) {
             dtm2.removeRow(0);  
+        }
+        for (int i = 0; i < c; i++) {
+            dtm3.removeRow(0);  
         }
     }
     public static void main(String args[]) {
