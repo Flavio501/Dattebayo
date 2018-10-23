@@ -30,7 +30,7 @@ public class AnalizadorLex extends javax.swing.JFrame {
         
         while (st.hasMoreTokens()) {
             String palabra = st.nextToken();
-            System.out.println(palabra);
+            //System.out.println(palabra);
             boolean matched = false;
 
             int cont = 0;
@@ -193,9 +193,12 @@ public class AnalizadorLex extends javax.swing.JFrame {
             tipotoken.add(b);
             dtm.addRow(new Object[]{tipo.get(j), tipotoken.get(j)});
             j++;
-
         }
-
+        
+        ArrayList<String> reglas = anSintax(tokens);
+        for(String s :reglas) {
+        	System.out.println(s);
+        }
     }
 
     public void abrir() {
@@ -226,6 +229,30 @@ public class AnalizadorLex extends javax.swing.JFrame {
                 e2.printStackTrace();
             }
         }
+    }
+    
+    public ArrayList<String> anSintax(ArrayList<Token> tokens){
+		ArrayList<String> reglas = new ArrayList<String>();
+		while(tokens.size() > 0) {
+			if(tokens.get(0).getTipo().toString() == "IDENTIFICADORES"
+	    			&& tokens.get(1).getTipo().toString() == "ASIGNACION"
+	    			&& tokens.get(2).getTipo().toString() == "ENTEROS"
+	    			&& tokens.get(3).getTipo().toString() == "TERMINADORES") {
+	    		reglas.add("ASIGNACION");
+	    		tokens.remove(3);
+	    		tokens.remove(2);
+	    		tokens.remove(1);
+	    		tokens.remove(0);
+	    	}
+			else {
+				reglas.add("Error");
+				for(int i = tokens.size()-1;i >= 0;i--) {
+					tokens.remove(i); 
+				}
+				
+			}
+		}
+		return reglas;
     }
 
     public void  mostrar() {
