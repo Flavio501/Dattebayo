@@ -8,6 +8,7 @@ public enum Tipo {
 	STRINGS("\"(.*?)\""),
     //OPARIT("(motto|sukunai|noma|niyotte)"),
     OPARIT("\\+|\\-|\\*|\\/"),
+    INCREMENTO("\\++|\\--"),
     OPLOG("(Neji|Sasori|Deidara|Gui|Lee|Gaara|Choji|Hidan)"),
     AGRUPADORES_APERTURA("[\\{|\\[|\\(]"),
     AGRUPADORES_CIERRE("[\\}|\\]|\\)]"),
